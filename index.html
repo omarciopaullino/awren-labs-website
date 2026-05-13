@@ -6,6 +6,8 @@
 <title>Awren Labs · Applied Intelligence Lab</title>
 <meta name="description" content="Awren Labs organiza inteligência, automação e sistemas de decisão para empresas que precisam operar com clareza na era da IA.">
 <meta name="theme-color" content="#111111">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -50,7 +52,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    display: flex;
+    display: flex !important;
     justify-content: center;
   }
   .gridlines > div {
@@ -92,17 +94,19 @@
     grid-column: 1;
     justify-self: start;
     display: inline-flex;
-    align-items: baseline;
-    gap: 2px;
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 22px;
-    letter-spacing: -0.05em;
-    text-transform: lowercase;
+    align-items: center;
     color: var(--ink);
     line-height: 1;
+    width: 138px;
+    height: auto;
   }
-  .logo .dot { display: inline-block; width: 9px; height: 9px; background: var(--accent); margin-left: 3px; transform: translateY(1px); }
+  .logo svg {
+    width: 138px;
+    height: auto;
+    display: block;
+  }
+  .logo .logo-main { fill: currentColor; }
+  .logo .logo-accent { fill: var(--accent); }
   .nav-links { grid-column: 2; justify-self: center; display: flex; gap: 30px; }
   .nav-links a { font-family: var(--sans); font-size: 14px; color: var(--ink-2); position: relative; transition: color .2s; white-space: nowrap; }
   .nav-links a::after { content: ""; position: absolute; left:0; right:0; bottom:-4px; height: 1px; background: var(--ink); transform: scaleX(0); transform-origin: left; transition: transform .25s; }
@@ -247,6 +251,55 @@
   .mobile-menu h5 { margin: 20px 0 10px; font-family: var(--mono); font-size: 11px; color: var(--muted); font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; }
   .mobile-menu a { font-size: 17px; color: var(--ink); padding: 10px 0; border-bottom: 1px solid var(--line); display: block; }
   .mobile-menu .mm-ctas { margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
+  .mobile-menu .mm-ctas a.btn {
+    display: inline-flex;
+    width: 100%;
+    height: 42px;
+    padding: 0 18px;
+    border-bottom: 0;
+    font-size: 13.5px;
+    line-height: 1;
+  }
+  .mobile-menu .mm-ctas a.btn-solid {
+    background: #111111;
+    color: #ffffff;
+    border-color: #111111;
+  }
+  .mobile-menu .mm-ctas a.btn-solid:hover {
+    background: #2a2a2a;
+    color: #ffffff;
+    border-color: #2a2a2a;
+  }
+  .mobile-menu .mm-ctas a.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line-strong);
+  }
+  .mobile-menu .mm-ctas a.btn-ghost:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  body.dark .mobile-menu .mm-ctas a.btn-solid {
+    background: #f2f2f2;
+    color: #111111;
+    border-color: #f2f2f2;
+  }
+  body.dark .mobile-menu .mm-ctas a.btn-solid:hover {
+    background: #d8d8d8;
+    color: #111111;
+    border-color: #d8d8d8;
+  }
+  body.dark .mobile-menu .mm-ctas a.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: rgba(255,255,255,0.16);
+  }
+  body.dark .mobile-menu .mm-ctas a.btn-ghost:hover {
+    background: #f2f2f2;
+    color: #111111;
+    border-color: #f2f2f2;
+  }
 
   .hero { padding: calc(72px + clamp(40px, 5.5vw, 132px)) 0 clamp(36px, 4vw, 88px); position: relative; }
   .hero-grid {
@@ -591,11 +644,120 @@
   .cov-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .cov-sub { font-family: var(--mono); font-size: 10px; color: var(--muted-2); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 10px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
   .bigmark { margin-top: 76px; padding: 36px 0 0; border-top: 1px solid var(--line); display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
-  .bigmark .word { flex: 0 1 auto; min-width: 0; font-family: var(--serif); font-weight: 600; line-height: 0.82; letter-spacing: -0.06em; text-transform: lowercase; font-size: clamp(80px, 16vw, 260px); margin: 0; color: var(--ink); white-space: nowrap; }
-  .bigmark .word .acc { color: var(--accent); }
+  .bigmark .word {
+    flex: 1 1 auto;
+    min-width: 0;
+    color: var(--ink);
+    margin: 0;
+  }
+  .bigmark .word svg {
+    width: min(64vw, 760px);
+    height: auto;
+    display: block;
+  }
+  .bigmark .logo-main { fill: currentColor; }
+  .bigmark .logo-accent { fill: var(--accent); }
   .bigmark .meta { flex: 0 0 auto; max-width: 340px; font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 24px; }
   .bigmark .meta b { display: block; color: var(--ink); font-weight: 400; font-family: var(--serif); font-size: 16px; letter-spacing: -0.005em; text-transform: none; margin-bottom: 6px; }
   .foot-bottom { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--muted); padding-top: 20px; border-top: 1px solid var(--line); margin-top: 20px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  #cookieLayer.cookie-layer {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+    pointer-events: none;
+    display: block;
+  }
+
+  #cookieBanner.cookie-banner {
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 20px !important;
+    display: flex !important;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 28px;
+    width: min(calc(100vw - var(--pad) * 2), 980px);
+    margin: 0;
+    padding: 22px 24px;
+    border: 1px solid var(--line-strong);
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 24px 60px -44px rgba(17,17,17,0.45);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate3d(-50%, 28px, 0) scale(.985);
+    transition: opacity .36s ease, transform .36s cubic-bezier(.22,1,.36,1), visibility .36s ease;
+    will-change: opacity, transform;
+  }
+  body.dark #cookieBanner.cookie-banner {
+    background: rgba(15,15,15,0.94);
+    box-shadow: 0 24px 60px -44px rgba(0,0,0,0.9);
+  }
+  #cookieBanner.cookie-banner.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+  #cookieLayer.cookie-layer:has(#cookieBanner.show) {
+    pointer-events: auto;
+  }
+  #cookieBanner.cookie-banner.hiding {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate3d(-50%, 18px, 0) scale(.985);
+  }
+  .cookie-copy { max-width: 620px; }
+  .cookie-kicker {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .cookie-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .cookie-text {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  .cookie-text a { color: var(--ink); border-bottom: 1px solid var(--line-strong); }
+  .cookie-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    min-width: 280px;
+  }
+  .cookie-actions .btn { height: 36px; font-size: 13px; }
+  .btn-subtle {
+    background: transparent;
+    color: var(--muted);
+    border-color: var(--line);
+  }
+  .btn-subtle:hover {
+    color: var(--ink);
+    border-color: var(--line-strong);
+    background: var(--paper-2);
+  }
+  body.dark .btn-subtle:hover {
+    background: var(--paper-3);
+  }
 
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity .48s ease, transform .48s ease; }
   .reveal.in { opacity: 1; transform: none; }
@@ -632,7 +794,8 @@
     nav .row { height: 64px; grid-template-columns: 1fr auto; }
     nav.top.scrolled .row { height: 64px; }
     .mobile-menu { top: 64px; height: calc(100dvh - 64px); }
-    .logo { font-size: 20px; }
+    .logo { width: 118px; }
+    .logo svg { width: 118px; }
     .nav-cta { grid-column: 2; }
     .nav-cta .btn:not(.nav-burger) { display: none; }
     .hero { padding: calc(64px + 48px) 0 40px; }
@@ -667,8 +830,26 @@
     .cta-final .btns .btn { width: 100%; }
     .cov-cols { grid-template-columns: 1fr; }
     .bigmark { margin-top: 46px; }
-    .bigmark .word { white-space: normal; font-size: clamp(58px, 20vw, 118px); line-height: .88; }
+    .bigmark .word svg { width: min(100%, 520px); }
     .foot-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
+    #cookieBanner.cookie-banner {
+      left: 50% !important;
+      right: auto !important;
+      top: auto !important;
+      bottom: 16px !important;
+      width: calc(100vw - 32px);
+      flex-direction: column;
+      gap: 18px;
+      padding: 20px;
+    }
+    .cookie-actions {
+      width: 100%;
+      min-width: 0;
+      flex-direction: column;
+    }
+    .cookie-actions .btn {
+      width: 100%;
+    }
     .ticker-inner { font-size: 11px; }
     .ticker-group { gap: 36px; padding-right: 36px; }
   }
@@ -681,7 +862,16 @@
 
   <nav class="top" id="topnav">
     <div class="container row">
-      <a class="logo" href="#"><span>Awren</span><span class="dot"></span></a>
+      <a class="logo" href="#" aria-label="Awren Labs">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810 163.5" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <path class="logo-main" d="M 59.476562 156.71875 C 42.132812 156.71875 28.417969 152.667969 18.347656 144.558594 C 8.277344 136.4375 3.242188 125.292969 3.242188 111.113281 C 3.242188 97.503906 7.761719 86.644531 16.804688 78.535156 C 25.859375 70.417969 38.035156 66.359375 53.335938 66.359375 L 106.484375 66.359375 L 106.484375 59.644531 C 106.484375 52.363281 103.871094 46.527344 98.644531 42.144531 C 93.429688 37.761719 86.625 35.570312 78.230469 35.570312 C 71.324219 35.570312 65.449219 37.160156 60.605469 40.339844 C 55.757812 43.511719 52.679688 47.699219 51.375 52.917969 L 10.523438 52.917969 C 13.136719 36.878906 20.363281 24.566406 32.207031 15.988281 C 44.050781 7.40625 59.296875 3.117188 77.949219 3.117188 C 99.957031 3.117188 117.15625 8.667969 129.558594 19.765625 C 141.964844 30.871094 148.171875 46.117188 148.171875 65.511719 L 148.171875 153.925781 L 116.5625 153.925781 L 111.808594 136.855469 C 98.941406 150.097656 81.492188 156.71875 59.476562 156.71875 Z M 45.21875 109.433594 C 45.21875 114.472656 47.410156 118.535156 51.792969 121.609375 C 56.175781 124.6875 62 126.222656 69.277344 126.222656 C 79.902344 126.222656 88.714844 123.148438 95.714844 116.992188 C 102.707031 110.84375 106.394531 102.824219 106.765625 92.933594 L 66.484375 92.933594 C 60.132812 92.933594 55.003906 94.425781 51.082031 97.410156 C 47.171875 100.394531 45.21875 104.402344 45.21875 109.433594 Z"/>
+          <path class="logo-main" d="M 195.714844 153.925781 L 141.4375 7.035156 L 186.484375 7.035156 L 203.554688 55.726562 L 218.105469 96.855469 L 233.199219 55.726562 L 251.394531 7.035156 L 285.808594 7.035156 L 303.988281 55.726562 L 319.097656 97.132812 L 333.652344 55.726562 L 351 7.035156 L 395.753906 7.035156 L 341.476562 153.925781 L 302.03125 153.925781 L 268.742188 64.398438 L 235.160156 153.925781 Z"/>
+          <path class="logo-main" d="M 391.5625 88.371094 L 391.816406 7.035156 L 423.421875 7.035156 L 429.023438 26.621094 C 433.871094 19.730469 439.835938 14.742188 446.925781 11.664062 C 454.015625 8.578125 462.96875 7.035156 473.792969 7.035156 L 489.738281 7.035156 L 489.738281 45.648438 L 473.5 45.648438 C 461.378906 45.648438 451.824219 48.917969 444.828125 55.449219 C 437.828125 61.972656 430.855469 72.523438 434.015625 88.058594 L 434.078125 88.371094 Z"/>
+          <path class="logo-accent" d="M 434.070312 88.367188 L 473.382812 88.367188 L 454.046875 162.96875 L 414.734375 162.96875 Z"/>
+          <path class="logo-main" d="M 601.253906 150.144531 C 586.816406 156.246094 572.785156 158.632812 559.15625 157.304688 C 545.53125 155.96875 533.359375 151.238281 522.640625 143.121094 C 511.921875 134.996094 503.589844 123.886719 497.640625 109.785156 C 491.683594 95.691406 489.59375 82 491.375 68.703125 C 493.144531 55.402344 498.300781 43.402344 506.835938 32.699219 C 515.378906 22 526.945312 13.5625 541.546875 7.390625 C 557.007812 0.859375 571.816406 -1.34375 585.976562 0.785156 C 600.144531 2.90625 612.800781 8.898438 623.957031 18.765625 C 635.105469 28.632812 643.742188 42 649.851562 58.859375 L 541.34375 104.679688 C 547.15625 113.167969 554.269531 118.519531 562.6875 120.730469 C 571.113281 122.933594 579.796875 122.144531 588.738281 118.367188 C 595.257812 115.613281 600.699219 111.847656 605.050781 107.070312 C 609.410156 102.296875 612.289062 96.984375 613.679688 91.128906 L 653.371094 74.367188 C 653.558594 91.097656 649.082031 106.152344 639.945312 119.523438 C 630.808594 132.902344 617.910156 143.105469 601.253906 150.144531 Z M 531.160156 79.816406 L 601.515625 50.109375 C 595.796875 42.804688 588.886719 38.078125 580.792969 35.925781 C 572.691406 33.777344 564.09375 34.625 554.988281 38.472656 C 546.394531 42.105469 539.960938 47.609375 535.679688 54.984375 C 531.398438 62.363281 529.894531 70.640625 531.160156 79.816406 Z"/>
+          <path class="logo-main" d="M 660.164062 156.5 L 660.164062 9.609375 L 691.769531 9.609375 L 696.246094 26.125 C 702.222656 19.222656 709.445312 14.09375 717.925781 10.738281 C 726.414062 7.371094 735.507812 5.691406 745.210938 5.691406 C 764.417969 5.691406 779.476562 11.664062 790.382812 23.609375 C 801.300781 35.546875 806.757812 51.675781 806.757812 72.003906 L 806.757812 156.5 L 764.242188 156.5 L 764.242188 76.480469 C 764.242188 65.671875 761.671875 57.234375 756.539062 51.171875 C 751.417969 45.101562 744.277344 42.066406 735.136719 42.066406 C 725.441406 42.066406 717.605469 45.425781 711.632812 52.144531 C 705.664062 58.863281 702.679688 68.003906 702.679688 79.566406 L 702.679688 156.5 Z"/>
+        </svg>
+      </a>
       <div class="nav-links">
         <a href="#systems">Sistemas</a>
         <a href="#method">Método</a>
@@ -951,10 +1141,37 @@
           <a href="mailto:contato@awrenlabs.com">contato@awrenlabs.com</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Brasil</a>
         </div>
       </div>
-      <div class="bigmark reveal"><div class="word">awren<span class="acc">.</span></div><div class="meta"><b>Applied Intelligence Lab</b>Clareza, sistemas e soberania operacional na era da IA.</div></div>
+      <div class="bigmark reveal">
+        <div class="word" aria-label="Awren Labs">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810 163.5" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <path class="logo-main" d="M 59.476562 156.71875 C 42.132812 156.71875 28.417969 152.667969 18.347656 144.558594 C 8.277344 136.4375 3.242188 125.292969 3.242188 111.113281 C 3.242188 97.503906 7.761719 86.644531 16.804688 78.535156 C 25.859375 70.417969 38.035156 66.359375 53.335938 66.359375 L 106.484375 66.359375 L 106.484375 59.644531 C 106.484375 52.363281 103.871094 46.527344 98.644531 42.144531 C 93.429688 37.761719 86.625 35.570312 78.230469 35.570312 C 71.324219 35.570312 65.449219 37.160156 60.605469 40.339844 C 55.757812 43.511719 52.679688 47.699219 51.375 52.917969 L 10.523438 52.917969 C 13.136719 36.878906 20.363281 24.566406 32.207031 15.988281 C 44.050781 7.40625 59.296875 3.117188 77.949219 3.117188 C 99.957031 3.117188 117.15625 8.667969 129.558594 19.765625 C 141.964844 30.871094 148.171875 46.117188 148.171875 65.511719 L 148.171875 153.925781 L 116.5625 153.925781 L 111.808594 136.855469 C 98.941406 150.097656 81.492188 156.71875 59.476562 156.71875 Z M 45.21875 109.433594 C 45.21875 114.472656 47.410156 118.535156 51.792969 121.609375 C 56.175781 124.6875 62 126.222656 69.277344 126.222656 C 79.902344 126.222656 88.714844 123.148438 95.714844 116.992188 C 102.707031 110.84375 106.394531 102.824219 106.765625 92.933594 L 66.484375 92.933594 C 60.132812 92.933594 55.003906 94.425781 51.082031 97.410156 C 47.171875 100.394531 45.21875 104.402344 45.21875 109.433594 Z"/>
+            <path class="logo-main" d="M 195.714844 153.925781 L 141.4375 7.035156 L 186.484375 7.035156 L 203.554688 55.726562 L 218.105469 96.855469 L 233.199219 55.726562 L 251.394531 7.035156 L 285.808594 7.035156 L 303.988281 55.726562 L 319.097656 97.132812 L 333.652344 55.726562 L 351 7.035156 L 395.753906 7.035156 L 341.476562 153.925781 L 302.03125 153.925781 L 268.742188 64.398438 L 235.160156 153.925781 Z"/>
+            <path class="logo-main" d="M 391.5625 88.371094 L 391.816406 7.035156 L 423.421875 7.035156 L 429.023438 26.621094 C 433.871094 19.730469 439.835938 14.742188 446.925781 11.664062 C 454.015625 8.578125 462.96875 7.035156 473.792969 7.035156 L 489.738281 7.035156 L 489.738281 45.648438 L 473.5 45.648438 C 461.378906 45.648438 451.824219 48.917969 444.828125 55.449219 C 437.828125 61.972656 430.855469 72.523438 434.015625 88.058594 L 434.078125 88.371094 Z"/>
+            <path class="logo-accent" d="M 434.070312 88.367188 L 473.382812 88.367188 L 454.046875 162.96875 L 414.734375 162.96875 Z"/>
+            <path class="logo-main" d="M 601.253906 150.144531 C 586.816406 156.246094 572.785156 158.632812 559.15625 157.304688 C 545.53125 155.96875 533.359375 151.238281 522.640625 143.121094 C 511.921875 134.996094 503.589844 123.886719 497.640625 109.785156 C 491.683594 95.691406 489.59375 82 491.375 68.703125 C 493.144531 55.402344 498.300781 43.402344 506.835938 32.699219 C 515.378906 22 526.945312 13.5625 541.546875 7.390625 C 557.007812 0.859375 571.816406 -1.34375 585.976562 0.785156 C 600.144531 2.90625 612.800781 8.898438 623.957031 18.765625 C 635.105469 28.632812 643.742188 42 649.851562 58.859375 L 541.34375 104.679688 C 547.15625 113.167969 554.269531 118.519531 562.6875 120.730469 C 571.113281 122.933594 579.796875 122.144531 588.738281 118.367188 C 595.257812 115.613281 600.699219 111.847656 605.050781 107.070312 C 609.410156 102.296875 612.289062 96.984375 613.679688 91.128906 L 653.371094 74.367188 C 653.558594 91.097656 649.082031 106.152344 639.945312 119.523438 C 630.808594 132.902344 617.910156 143.105469 601.253906 150.144531 Z M 531.160156 79.816406 L 601.515625 50.109375 C 595.796875 42.804688 588.886719 38.078125 580.792969 35.925781 C 572.691406 33.777344 564.09375 34.625 554.988281 38.472656 C 546.394531 42.105469 539.960938 47.609375 535.679688 54.984375 C 531.398438 62.363281 529.894531 70.640625 531.160156 79.816406 Z"/>
+            <path class="logo-main" d="M 660.164062 156.5 L 660.164062 9.609375 L 691.769531 9.609375 L 696.246094 26.125 C 702.222656 19.222656 709.445312 14.09375 717.925781 10.738281 C 726.414062 7.371094 735.507812 5.691406 745.210938 5.691406 C 764.417969 5.691406 779.476562 11.664062 790.382812 23.609375 C 801.300781 35.546875 806.757812 51.675781 806.757812 72.003906 L 806.757812 156.5 L 764.242188 156.5 L 764.242188 76.480469 C 764.242188 65.671875 761.671875 57.234375 756.539062 51.171875 C 751.417969 45.101562 744.277344 42.066406 735.136719 42.066406 C 725.441406 42.066406 717.605469 45.425781 711.632812 52.144531 C 705.664062 58.863281 702.679688 68.003906 702.679688 79.566406 L 702.679688 156.5 Z"/>
+          </svg>
+        </div>
+        <div class="meta"><b>Applied Intelligence Lab</b>Clareza, sistemas e soberania operacional na era da IA.</div>
+      </div>
       <div class="foot-bottom"><span>© 2026 Awren Labs</span><span>Intelligence · Systems · Clarity</span></div>
     </div>
   </footer>
+
+  <div class="cookie-layer" id="cookieLayer" aria-hidden="false">
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies e LGPD">
+      <div class="cookie-copy">
+        <div class="cookie-kicker">Privacidade · LGPD</div>
+        <h3 class="cookie-title">Usamos cookies para melhorar sua experiência.</h3>
+        <p class="cookie-text">A Awren Labs utiliza cookies essenciais e, quando autorizado, dados analíticos para entender navegação e aprimorar este site. Você pode aceitar, recusar ou ajustar preferências. Consulte nossa <a href="#">Política de Privacidade</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button type="button" class="btn btn-subtle" id="cookiePrefs">Preferências</button>
+        <button type="button" class="btn btn-ghost" id="cookieReject">Recusar</button>
+        <button type="button" class="btn btn-solid" id="cookieAccept">Aceitar cookies</button>
+      </div>
+    </div>
+  </div>
 
 <script>
   const nav = document.getElementById('topnav');
@@ -1005,6 +1222,37 @@
   }
   dots.forEach(dot => dot.addEventListener('click', () => setQuote(Number(dot.dataset.slide))));
   timer = setInterval(() => setQuote((current + 1) % slides.length), 6000);
+
+  const cookieLayer = document.getElementById('cookieLayer');
+  const cookieBanner = document.getElementById('cookieBanner');
+  if (cookieLayer && cookieLayer.parentElement !== document.body) {
+    document.body.appendChild(cookieLayer);
+  }
+  const cookieAccept = document.getElementById('cookieAccept');
+  const cookieReject = document.getElementById('cookieReject');
+  const cookiePrefs = document.getElementById('cookiePrefs');
+  const cookieReset = new URLSearchParams(window.location.search).get('cookies') === 'reset';
+  if (cookieReset) localStorage.removeItem('awren-cookie-consent');
+
+  const cookieConsent = localStorage.getItem('awren-cookie-consent');
+
+  if (!cookieConsent && cookieBanner) {
+    window.setTimeout(() => {
+      cookieBanner.classList.remove('hiding');
+      cookieBanner.classList.add('show');
+    }, 700);
+  }
+
+  function setCookieConsent(value) {
+    localStorage.setItem('awren-cookie-consent', value);
+    cookieBanner.classList.add('hiding');
+    cookieBanner.classList.remove('show');
+    window.setTimeout(() => cookieBanner.classList.remove('hiding'), 380);
+  }
+
+  cookieAccept.addEventListener('click', () => setCookieConsent('accepted'));
+  cookieReject.addEventListener('click', () => setCookieConsent('rejected'));
+  cookiePrefs.addEventListener('click', () => setCookieConsent('essential-only'));
 
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
